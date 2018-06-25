@@ -1,4 +1,4 @@
-tF1bw implements a Burrows-Wheeler Transform for the purpose of compressing genetic data.
+F1bw implements a Burrows-Wheeler Transform for the purpose of compressing genetic data.
 
 +-------------------+------------+------------+
 | Latest Release    | |pypi|     | |F1bw|     |
