@@ -38,7 +38,7 @@ tF1bw implements a Burrows-Wheeler Transform for the purpose of compressing gene
     :alt: GitHub repository
 
 .. |license| image:: https://img.shields.io/badge/License-BSD%203--Clause-blue.svg
-    :target: https://github.com/LegumeFederation/lorax/blob/master/LICENSE.txt
+    :target: https://github.com/MChigaev/F1bw/master/LICENSE.txt
     :alt: License terms
 
 .. |rtd| image:: https://readthedocs.org/projects/lorax/badge/?version=latest
