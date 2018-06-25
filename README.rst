@@ -52,7 +52,7 @@ F1bw implements a Burrows-Wheeler Transform for the purpose of compressing genet
     :alt: landscape.io status
 
 .. |codacy| image:: https://api.codacy.com/project/badge/Grade/2ebc65ca90f74dc7a9238c202f327981
-    :target: https://www.codacy.com/app/joelb123/lorax?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MChigaev/F1bw&amp;utm_campaign=Badge_Grade
+    :target: https://www.codacy.com/app/MChigaev/F1bw?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MChigaev/F1bw&amp;utm_campaign=Badge_Grade
     :alt: Codacy.io grade
 
 .. |coverage| image:: https://codecov.io/gh/MChigaev/F1bw/branch/master/graph/badge.svg
