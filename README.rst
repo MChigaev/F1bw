@@ -23,9 +23,9 @@ F1bw implements a Burrows-Wheeler Transform for the purpose of compressing genet
 +-------------------+------------+------------+
 
 
-.. |F1bw| image:: docs/lorax_big_icon.jpg
-     :target: https://en.wikipedia.org/wiki/The_Lorax
-     :alt: Dr. Suess, The Lorax
+.. |F1bw| image:: F1bw.jpg
+     :target: https://github.com/MChigaev/F1bw
+     :alt: F1bw
 
 .. |pypi| image:: https://img.shields.io/pypi/v/F1bw.svg
     :target: https://pypi.python.org/pypi/F1bw
