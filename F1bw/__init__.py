@@ -67,5 +67,4 @@ def main(t, i, string, endchr):
 		inverse(string, endchr)
 	else:
 		print("A transformation must be specified, see --help.")
-if __name__ == "__main__":
 	main()
