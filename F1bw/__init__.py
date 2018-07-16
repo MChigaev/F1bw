@@ -67,4 +67,4 @@ def main(t, i, string, endchr):
 		inverse(string, endchr)
 	else:
 		print("A transformation must be specified, see --help.")
-	main()
+main()
