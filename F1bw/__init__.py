@@ -1,3 +1,8 @@
+import click
+from core.cli import transform
+from core.cli import inverse
+
+
 @click.command()
 @click.option("-t", is_flag=True, help="Specifies that a transformation is needed.")
 @click.option("-i", is_flag=True, help="Specifies that an inverse is needed.")
