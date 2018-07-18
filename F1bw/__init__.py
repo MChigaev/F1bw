@@ -20,7 +20,7 @@ def bw_key(text, value, step):
 
 def burroughs_wheeler_custom(text):
     return ''.join(text[i - 1] for i in radix_sort(range(len(text)),
-    partial(bw_key, text)))
+                                                   partial(bw_key, text)))
 
 
 def transform(inp):
@@ -29,7 +29,8 @@ def transform(inp):
     x = 0
     while x < len(out):
         if x != 0 and out[x - 1] == out[x]:
-            out = out[0:x - 1] + out[x - 1].upper() + out[x].upper() + out[x + 1:len(out)]
+            out = out[0:x - 1] + out[x - 1].upper() +
+                                     out[x].upper() + out[x + 1:len(out)]
         x += 1
     print(out)
 
@@ -56,12 +57,20 @@ def inverse(inp, endchr):
 
 
 @click.command()
-@click.option("-t", is_flag=True, help="Specifies that a transformation is needed.")
-@click.option("-i", is_flag=True, help="Specifies that an inverse is needed.")
-@click.option("--string", prompt="String", help="The string to be transformed, or the string to have the inverse run on it.")
-@click.option("--endchr", default="%", help="The end character, only used for the inverse operation. The default character is %", required=False)
+@click.option("-t", is_flag=True, help="Specifies that a 
+              transformation is needed.")
+@click.option("-i", is_flag=True, help="Specifies that an 
+              inverse is needed.")
+@click.option("--string", prompt="String", help="The string to be transformed, 
+              or the string to have the inverse run on it.")
+@click.option("--endchr", default="%", help="The end character, 
+              only used for the inverse operation. The default character is %", required=False)
 def main(t, i, string, endchr):
-    """Program that transforms or performs the inverse of a Burrows-Wheeler Transform on a given string. If the operation was a transformation, the program then looks for repeats and highlights them by capitalizing them. It is also case insensitive"""
+    """Program that transforms or performs the inverse of a Burrows-Wheeler 
+    Transform on a given string. 
+    If the operation was a transformation, 
+    the program then looks for repeats and highlights them by capitalizing them. 
+    It is also case insensitive."""
     if t and i:
         print("You cannot transform and perform an inverse at the same time. See --help")
         return
