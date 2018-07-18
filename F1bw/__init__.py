@@ -40,5 +40,5 @@ def main(t, i, string, endchr):
     else:
         print("A transformation must be specified, see --help.")
         sys.exit(1)
-
-main()
+if __name__ == "__main__":
+    main()
