@@ -1,6 +1,3 @@
-import click
-
-
 def radix_sort(values, key, step=0):
     if len(values) < 2:
         for value in values:
