@@ -31,10 +31,10 @@ def main(t, i, string, endchr):
     
     :param endchr: the endchr is the end character that is supplied to determine the original string when running the inverse.
     """
-    if t and i:
+    if f and i:
         print("You cannot transform and perform an inverse at the same time. See --help.")
         sys.exit(1)
-    if t:
+    if f:
         transform(string)
         sys.exit(0)
     elif i:
