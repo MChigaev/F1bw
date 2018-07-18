@@ -1,8 +1,8 @@
 def radix_sort(values, key, step=0):
     """Performs a radix sort.
-    :param
-    :param
-    :param"""
+    :param the number values to sort.
+    :param key: The key to use.
+    :param step: The current step. Default is 0."""
     if len(values) < 2:
         for value in values:
             yield value
@@ -16,10 +16,10 @@ def radix_sort(values, key, step=0):
 
 
 def bw_key(text, value, step):
-    """
-    :param
-    :param
-    :param"""
+    """Generates a key for a character in text
+    :param text: the text to have a key generated from.
+    :param value: The value which is used to determine the character, in addition to the step.
+    :param step: The step, used in the radix sort."""
     return text[(value + step) % len(text)]
 
 
