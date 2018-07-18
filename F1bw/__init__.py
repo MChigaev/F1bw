@@ -1,3 +1,6 @@
+import sys
+
+
 import click
 from core import transform
 from core import inverse
@@ -14,18 +17,28 @@ def main(t, i, string, endchr):
     If the operation was a transformation, 
     the program then looks for repeats and highlights them by capitalizing them. 
     It is also case insensitive."""
+    homogenous = True
+    chr1 = string[0]
+    for chr in string:
+        if chr1 != chr :
+            homogenous = False
+    if homogenous:
+        print("You cannnot transform a homogenous string. See --help")
+        sys.exit(1)
     if t and i:
         print("You cannot transform and perform an inverse at the same time. See --help")
-        return
+        sys.exit(1)
     if t:
         transform(string)
+        sys.exit(0)
     elif i:
         if endchr not in string:
             print("The end character must be in the string that is to have the inverse applied to it. The default end character is %. See --help")
-            return
+            sys.exit(1)
         inverse(string, endchr)
+        sys.exit(0)
     else:
         print("A transformation must be specified, see --help.")
-
+        sys.exit(1)
 
 main()
