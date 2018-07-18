@@ -43,8 +43,8 @@ def main(f, i, string, endchr):
         print("A transformation must be specified, see --help.")
         sys.exit(1)
 
-from cli import *
 
+from cli import *
 
 if __name__ == "__main__":
 	main()
