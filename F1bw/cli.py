@@ -1,4 +1,8 @@
 def radix_sort(values, key, step=0):
+    """Performs a radix sort.
+    :param
+    :param
+    :param"""
     if len(values) < 2:
         for value in values:
             yield value
@@ -12,14 +16,22 @@ def radix_sort(values, key, step=0):
 
 
 def bw_key(text, value, step):
+    """
+    :param
+    :param
+    :param"""
     return text[(value + step) % len(text)]
 
 
 def burroughs_wheeler_custom(text):
+    """Performs the transformation.
+    @param: text the text to be transformed."""
     return ''.join(text[i - 1] for i in radix_sort(range(len(text)), partial(bw_key, text)))
 
 
 def transform(inp):
+    """Finds repeats and capitalizes them after transforming the string.
+    :param inp: the text to be transformed and capitalized based off of repeats."""
     inp = inp.lower()
     out = burroughs_wheeler_custom(inp)
     x = 0
@@ -31,6 +43,9 @@ def transform(inp):
 
 
 def inverse(inp, endchr):
+    """Performs the inverse of the transformation.
+    :param inp: the text to have the inverse applied to it.
+    :param endchr: the end character that is used to figure out the original string."""
     inp = inp.lower()
     out = []
     x = 0
