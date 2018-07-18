@@ -44,7 +44,7 @@ def bw_key(text, value, step):
 def burroughs_wheeler_custom(text):
     """
     Performs the transformation.
-    @param: text the text to be transformed.
+    :param: text the text to be transformed.
     """
     return ''.join(text[i - 1] for i in radix_sort(range(len(text)), partial(bw_key, text)))
 
