@@ -6,6 +6,7 @@
 # it under the terms of the 3-Clause BSD License; see LICENSE.txt
 # file for more details.
 
+#Note: The code from the radix_sort function to the burrows_wheeler_custom is not my code. It is also buggy, so it will be replaced with better and faster code.
 
 def radix_sort(values, key, step=0):
     """
