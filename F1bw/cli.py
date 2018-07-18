@@ -8,6 +8,8 @@
 
 #Note: The code from the radix_sort function to the burrows_wheeler_custom is not my code. It is also buggy, so it will be replaced with better and faster code.
 
+from functools import partial
+
 def radix_sort(values, key, step=0):
     """
     Performs a radix sort.
