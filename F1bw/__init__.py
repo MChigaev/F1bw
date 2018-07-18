@@ -1,7 +1,4 @@
 import click
-from random import choice
-from timeit import timeit
-from functools import partial
 
 def radix_sort(values, key, step=0):
     if len(values) < 2:
