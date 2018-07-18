@@ -16,7 +16,11 @@ def main(t, i, string, endchr):
     Transform on a given string. 
     If the operation was a transformation, 
     the program then looks for repeats and highlights them by capitalizing them. 
-    It is also case insensitive."""
+    It is also case insensitive.
+    :param t: t is a boolean which tells the function to run the transform function.
+    :param i: i is a boolean which tells the function to run the inverse function.
+    :param string: the string is the text that is supplied to either transform or have the inverse run on it.
+    :param endchr: the endchr is the end character that is supplied to determine the original string when running the inverse."""
     homogenous = True
     chr1 = string[0]
     for chr in string:
