@@ -1,3 +1,12 @@
+# -*- coding: utf-8 -*-
+#
+# Copyright (C) 2018, Michael Chigaev.
+#
+# F1bw is free software; you can redistribute it and/or modify
+# it under the terms of the 3-Clause BSD License; see LICENSE.txt
+# file for more details.
+
+
 def radix_sort(values, key, step=0):
     """
     Performs a radix sort.
