@@ -9,18 +9,14 @@
 
 import sys
 
-
 import click
-from cli import transform
-from cli import inverse
-
 
 @click.command()
 @click.option("-f", is_flag=True, help="Transforms forward a string.")
 @click.option("-i", is_flag=True, help="Does the inverse on a string.")
 @click.option("--string", prompt="String", help="The string to be transformed, or the string to have the inverse run on it.")
 @click.option("--endchr", default="%", help="The end character, only used for the inverse operation. The default character is %", required=False)
-def main(t, i, string, endchr):
+def main(f, i, string, endchr):
     """
     Transforms forward or does the inverse on a string.
     :param t: t is a boolean which tells the function to run the transform function.
@@ -46,5 +42,9 @@ def main(t, i, string, endchr):
     else:
         print("A transformation must be specified, see --help.")
         sys.exit(1)
+
+from cli import *
+
+
 if __name__ == "__main__":
-    main()
+	main()
