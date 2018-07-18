@@ -7,30 +7,23 @@ from core import inverse
 
 
 @click.command()
-@click.option("-t", is_flag=True, help="Specifies that a transformation is needed.")
-@click.option("-i", is_flag=True, help="Specifies that an inverse is needed.")
+@click.option("-f", is_flag=True, help="Transforms forward a string.")
+@click.option("-i", is_flag=True, help="Does the inverse on a string.")
 @click.option("--string", prompt="String", help="The string to be transformed, or the string to have the inverse run on it.")
 @click.option("--endchr", default="%", help="The end character, only used for the inverse operation. The default character is %", required=False)
 def main(t, i, string, endchr):
-    """Program that transforms or performs the inverse of a Burrows-Wheeler 
-    Transform on a given string. 
-    If the operation was a transformation, 
-    the program then looks for repeats and highlights them by capitalizing them. 
-    It is also case insensitive.
+    """
+    Transforms forward or does the inverse on a string.
     :param t: t is a boolean which tells the function to run the transform function.
+    
     :param i: i is a boolean which tells the function to run the inverse function.
+    
     :param string: the string is the text that is supplied to either transform or have the inverse run on it.
-    :param endchr: the endchr is the end character that is supplied to determine the original string when running the inverse."""
-    homogenous = True
-    chr1 = string[0]
-    for chr in string:
-        if chr1 != chr :
-            homogenous = False
-    if homogenous:
-        print("You cannnot transform a homogenous string. See --help")
-        sys.exit(1)
+    
+    :param endchr: the endchr is the end character that is supplied to determine the original string when running the inverse.
+    """
     if t and i:
-        print("You cannot transform and perform an inverse at the same time. See --help")
+        print("You cannot transform and perform an inverse at the same time. See --help.")
         sys.exit(1)
     if t:
         transform(string)
