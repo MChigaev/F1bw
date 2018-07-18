@@ -1,6 +1,6 @@
 import click
-from core.cli import transform
-from core.cli import inverse
+from core import transform
+from core import inverse
 
 
 @click.command()
