@@ -2,8 +2,8 @@ import sys
 
 
 import click
-from core import transform
-from core import inverse
+from cli import transform
+from cli import inverse
 
 
 @click.command()
