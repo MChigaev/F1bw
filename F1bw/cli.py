@@ -101,13 +101,12 @@ def rep(text, num):
     x = 0
     while x < len(text) - 1:
         if text[x] == text[x + 1]:
-            c = x
+            h = x
             while True:
-                if not c < len(text) - 1 or not text[c] == text[c + 1]:
+                if not x < len(text) - 1 or not text[x] == text[x + 1]:
                     break
-                c = c + 1
-            if abs(c + 1 - x) >= num:
-                text = text[0:x] + text[x:c + 1].lower() + text[c + 1:len(text)] 
-            x = c
+                x += 1
+            if abs(x + 1 - h) >= num:
+                text = text[0:h] + text[h:x + 1].lower() + text[x + 1:len(text)] 
         x += 1
     print(text)
