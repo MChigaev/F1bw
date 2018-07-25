@@ -8,12 +8,13 @@
 
 #Note: The code from the radix_sort function to the burrows_wheeler_custom is not my code. It is also buggy, so it will be replaced with better and faster code.
 
+import string
 from functools import partial
 
 def radix_sort(values, key, step=0):
     """
     Performs a radix sort.
-    :param the number values to sort.
+    :param the values to sort.
     
     :param key: The key to use.
    
@@ -51,19 +52,15 @@ def burroughs_wheeler_custom(text):
     return ''.join(text[i - 1] for i in radix_sort(range(len(text)), partial(bw_key, text)))
 
 
-def transform(inp):
+def forward(inp):
     """
-    Finds repeats and capitalizes them after transforming the string.
-    :param inp: the text to be transformed and capitalized based off of repeats.
+    Transforms forward the string, ignore case.
+    :param inp: the text to be transformed with ignored case.
     """
     inp = inp.lower()
     out = burroughs_wheeler_custom(inp)
-    x = 0
-    while x < len(out):
-        if x != 0 and out[x - 1] == out[x]:
-            out = out[0:x - 1] + out[x - 1].upper() + out[x].upper() + out[x + 1:len(out)]
-        x += 1
-    print(out)
+    out = out.upper()
+    return out
 
 
 def inverse(inp, endchr):
@@ -91,3 +88,26 @@ def inverse(inp, endchr):
         if z[len(z) - 1] == endchr:
             out = z
     print(out)
+
+
+def rep(text, num):
+    """
+    Finds repeats greater than or equal to a certain length, and lowercases them.
+    
+    :param text: The text to be searched.
+
+    :param num: The length of the repeat.
+    """
+    x = 0
+    while x < len(text) - 1:
+        if text[x] == text[x + 1]:
+            c = x
+            while True:
+                if not c < len(text) - 1 or not text[c] == text[c + 1]:
+                    break
+                c = c + 1
+            if abs(c + 1 - x) >= num:
+                text = text[0:x] + text[x:c + 1].lower() + text[c + 1:len(text)] 
+            x = c
+        x += 1
+    print(text)
