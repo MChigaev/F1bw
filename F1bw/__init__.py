@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # -*- coding: utf-8 -*-
 #
 # Copyright (C) 2018, Michael Chigaev.
@@ -5,7 +7,6 @@
 # F1bw is free software; you can redistribute it and/or modify
 # it under the terms of the 3-Clause BSD License; see LICENSE.txt
 # file for more details.
-
 
 import sys
 
@@ -38,23 +39,23 @@ def main(f, i, r, rb, endchr, string):
     if not f and not i:
         f = not f
     if string == "":
-        string = sys.stdin.read()
-        if string == "":
+        string = sys.stdin.read().strip()
+        if len(string) == 0:
             print("The string must be specified either through execution or through stdin")
             sys.exit(1)
-        string = string.strip()
     if f and i:
         if endchr not in string:
             print("The end character must be in the string that is to have the inverse applied to it. The default end character is %. See --help")
             sys.exit(1)
+        string = string.strip()
         fw = forward(string)
         if r > -1:
             fw = rep(fw, r)
-        print("Transformed forward string (and if specified, lowercase letter repeats): " + fw)
-        inv = inverse(string, endchr)
+        print(fw)
+        inv = inverse(fw, endchr)
         if r > -1:
             inv = rep(inv, r)
-        print("Inverse of the transformed forward string (and if specified, lowercase letter repeats): " + inv)
+        print(inv)
         sys.exit(0)
     if f:
         out = forward(string)
