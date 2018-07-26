@@ -8,7 +8,6 @@
 
 #Note: The code from the radix_sort function to the burrows_wheeler_custom is not my code. It is also buggy, so it will be replaced with better and faster code.
 
-import string
 from functools import partial
 
 def radix_sort(values, key, step=0):
@@ -58,9 +57,9 @@ def forward(inp):
     :param inp: the text to be transformed with ignored case.
     """
     inp = inp.lower()
-    out = burroughs_wheeler_custom(inp)
-    out = out.upper()
-    return out
+    inp = burroughs_wheeler_custom(inp)
+    inp = inp.upper()
+    return inp
 
 
 def inverse(inp, endchr):
@@ -87,7 +86,8 @@ def inverse(inp, endchr):
     for z in out:
         if z[len(z) - 1] == endchr:
             out = z
-    print(out)
+    out = out.upper()
+    return out
 
 
 def rep(text, num):
@@ -98,6 +98,7 @@ def rep(text, num):
 
     :param num: The length of the repeat.
     """
+    text = text.upper()
     x = 0
     while x < len(text) - 1:
         if text[x] == text[x + 1]:
@@ -109,4 +110,6 @@ def rep(text, num):
             if abs(x + 1 - h) >= num:
                 text = text[0:h] + text[h:x + 1].lower() + text[x + 1:len(text)] 
         x += 1
-    print(text)
+    if num <= 1:
+        text = text.lower()
+    return text

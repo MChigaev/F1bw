@@ -14,44 +14,69 @@ import click
 @click.command()
 @click.option("-f", is_flag=True, help="Transforms forward a string.")
 @click.option("-i", is_flag=True, help="Does the inverse on a string.")
-@click.option("-r", default=0, help="Looks for repeats and highlights them by lowercasing them.")
-@click.option("--string", prompt="String", help="The string to be transformed, or the string to have the inverse run on it.")
+@click.option("-r", default=-1, help="Looks for repeats and highlights them by lowercasing them after transformation.")
+@click.option("-rb", default=-1, help="Looks for repeats and highlights them by lowercasing them before transformation.")
 @click.option("--endchr", default="%", help="The end character, only used for the inverse operation. The default character is %", required=False)
-def main(f, i, r, string, endchr):
+@click.argument("string", default="")
+def main(f, i, r, rb, endchr, string):
     """
     Transforms forward or does the inverse on a string, and if specified, highlights repeats by lowercasing them after running the transform function.
-    :param t: t is a boolean which tells the function to run the forward function.
+    :param f: f is a boolean which tells the function to run the forward function.
     
     :param i: i is a boolean which tells the function to run the inverse function.
 
     :param r: number input that tells the program to look for repeats greater than or equal to the length specified, and highlight them by lowercasing them.
     
-    :param string: the string is the text that is supplied to either transform or have the inverse run on it.
-    
-    :param endchr: the endchr is the end character that is supplied to determine the original string when running the inverse.
+    :param rb: number input that tells the program to look for repeats greater than or equal to the equal number before transforming the string, and highlights them be lowercasing letters.
+
+    :param endchr: the endchr is the end character that is supplied to determine the original string when running the inverse
+
+    :arg string: the string is the text that is supplied to either transform or have the inverse run on it.
     """
+    if rb != -1:
+        print("Repeats before trasformation: " + rep(string, rb))
+    if not f and not i:
+        f = not f
+    if string == "":
+        string = sys.stdin.read()
+        if string == "":
+            print("The string must be specified either through execution or through stdin")
+            sys.exit(1)
+        string = string.strip()
     if f and i:
-        print("You cannot transform forward and perform an inverse at the same time. See --help.")
-        sys.exit(1)
+        if endchr not in string:
+            print("The end character must be in the string that is to have the inverse applied to it. The default end character is %. See --help")
+            sys.exit(1)
+        fw = forward(string)
+        if r > -1:
+            fw = rep(fw, r)
+        print("Transformed forward string (and if specified, lowercase letter repeats): " + fw)
+        inv = inverse(string, endchr)
+        if r > -1:
+            inv = rep(inv, r)
+        print("Inverse of the transformed forward string (and if specified, lowercase letter repeats): " + inv)
+        sys.exit(0)
     if f:
         out = forward(string)
-        if r != 0:
-            rep(out, r)
-        else:
-            print(out)
+        if r > -1:
+            out = rep(out, r)
+        print(out)
         sys.exit(0)
     elif i:
         if endchr not in string:
             print("The end character must be in the string that is to have the inverse applied to it. The default end character is %. See --help")
             sys.exit(1)
-        inverse(string, endchr)
+        out = inverse(string, endchr)
+        if r > -1:
+            out = rep(out, r)
+        print(out)
         sys.exit(0)
     else:
         print("A transformation must be specified, see --help.")
         sys.exit(1)
 
 
-from cli import *
+from .cli import *
 
 if __name__ == "__main__":
 	main()

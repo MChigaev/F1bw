@@ -60,7 +60,7 @@ setup(
                     'setuptools-scm>1.5'
                     ],
     entry_points={
-        'console_scripts': [NAME + ' = ' + NAME + '.cli:cli']
+        'console_scripts': [NAME + ' = ' + NAME + ':main']
     },
     use_scm_version={
         'version_scheme': 'guess-next-dev',
