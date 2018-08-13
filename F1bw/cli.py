@@ -69,7 +69,6 @@ def inverse(inp, endchr):
     
     :param endchr: the end character that is used to figure out the original string.
     """
-    inp = inp.lower()
     out = []
     x = 0
     while x < len(inp):
@@ -81,12 +80,11 @@ def inverse(inp, endchr):
         while y < len(inp):
             out[y] = inp[y] + out[y]
             y += 1
-        out = sorted(out)
+        out.sort(key=str.upper)
         x += 1
     for z in out:
         if z[len(z) - 1] == endchr:
             out = z
-    out = out.upper()
     return out
 
 

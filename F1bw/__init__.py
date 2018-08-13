@@ -51,13 +51,7 @@ def main(f, i, r, rb, endchr, string):
         if r > -1:
             fw = rep(fw, r)
         print(fw)
-        lows = []
-        for i in fw:
-            if i == i.lower() and i in "abcdefghijklmnopqrstuvwxyz":
-                lows.append(i.upper())
         inv = inverse(fw, endchr)
-        for i in lows:
-           inv = inv[0:inv.find(i)] + inv[inv.find(i):inv.find(i) + 1].lower() + inv[inv.find(i) + 1: len(inv)]
         print(inv.rstrip("%"))
         sys.exit(0)
     if f:
