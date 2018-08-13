@@ -56,9 +56,8 @@ def forward(inp):
     Transforms forward the string, ignore case.
     :param inp: the text to be transformed with ignored case.
     """
-    inp = inp.lower()
-    inp = burroughs_wheeler_custom(inp)
     inp = inp.upper()
+    inp = burroughs_wheeler_custom(inp)
     return inp
 
 
